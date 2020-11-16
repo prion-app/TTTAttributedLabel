@@ -1480,7 +1480,12 @@ afterInheritingLabelAttributesAndConfiguringWithBlock:(NSMutableAttributedString
             [self.delegate attributedLabel:self didSelectLinkWithTextCheckingResult:result];
         }
     } else {
-        [super touchesEnded:touches withEvent:event];
+        NSUInteger numTaps = [[touches anyObject] tapCount];
+        if (numTaps < 2) {
+            if ([self.delegate respondsToSelector:@selector(attributedLabelDidSingleTap:)]) {
+                [self.delegate attributedLabelDidSingleTap:self];
+            }
+        }
     }
 }
 

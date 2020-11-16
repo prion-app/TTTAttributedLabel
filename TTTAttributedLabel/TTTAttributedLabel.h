@@ -512,6 +512,13 @@ didSelectLinkWithTransitInformation:(NSDictionary *)components;
 - (void)attributedLabel:(TTTAttributedLabel *)label
 didSelectLinkWithTextCheckingResult:(NSTextCheckingResult *)result;
 
+/**
+ Tells the delegate that the user single tapped the label's background
+ 
+ @param label The label that was single tapped
+ */
+- (void)attributedLabelDidSingleTap:(TTTAttributedLabel *)label;
+
 ///---------------------------------
 /// @name Responding to Long Presses
 ///---------------------------------
